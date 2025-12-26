@@ -10,7 +10,7 @@ jobs:
   cli:
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      GH_TOKEN: ${{ secrets.GHITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - run: env
