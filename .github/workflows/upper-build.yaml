@@ -27,5 +27,6 @@ jobs:
           go test
           ./upper foo the bar
         working-directory: ./upper
+        name: build and test upper
 
 
