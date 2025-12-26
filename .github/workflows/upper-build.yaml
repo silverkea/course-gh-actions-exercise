@@ -16,7 +16,7 @@ jobs:
     steps:
       - run: pwd && ls -al
       - uses: actions/checkout@v4
-      - run: pwd && ls -al
+      - run: pwd && ls #-al
         shell: bash
       # - run: go version
       - uses: actions/setup-go@v4
