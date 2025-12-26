@@ -4,12 +4,12 @@ name: test
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push events
   push:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
   # schedule:
   #   - cron: "*/5 * * * *" # Runs every 5 minutes
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
