@@ -18,7 +18,7 @@ jobs:
             console.log(`issue_number: ${issue_number}`);
 
             const owner = context.repo.owner;
-            contst repo = context.repo.repo;
+            const repo = context.repo.repo;
 
             // lookup issue info
             const issue = await github.rest.issues.get({
@@ -26,20 +26,21 @@ jobs:
             });
             console.log(`issue: ${issue}`);
 
-            // create comment thankign contributor
+            // create comment thanking contributor
             const comment = await github.rest.issues.createComment({
               repo, owner, issue_number,
-              body: `Thanks for opening this issue, @${issue.data.user.login}! We appreciate your contribution.`
+              body: "Thanks for your contribution!"
             });
             console.log(`comment id: ${comment.data.id}`);
             console.log(comment.data);
 
             // auto label
-            await github.rest.issues.addLabels({
+            github.rest.issues.addLabels({
               repo, owner, issue_number,
               labels: ['todo-review']
-            });
+            })
 
+            // make comment id available to subsequent steps
             return comment.data.id;
 
       - run: echo 'comment id=${{ steps.issue_script.outputs.result }}'
