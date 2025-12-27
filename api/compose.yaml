@@ -1,6 +1,6 @@
 services:
   api:
-    image: silverkea/actions-web:latest
+    image: terryjmitchell/actions-web:latest
     build:
       context: .
       target: runner
