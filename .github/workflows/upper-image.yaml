@@ -27,6 +27,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - run: docker tag upper ghcr.io/${{ github.repository_owner }}/upper:latest
-      - run: docker tag upper ghtc.io/${{ github.repository_owner }}/upper:${{ github.ref_name}}
+      - run: docker tag upper ghcr.io/${{ github.repository_owner }}/upper:${{ github.ref_name}}
       - run: docker push ghcr.io/${{ github.repository_owner }}/upper:latest
       - run: docker push ghcr.io/${{ github.repository_owner }}/upper:${{ github.ref_name}}
