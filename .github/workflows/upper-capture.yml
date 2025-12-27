@@ -3,7 +3,7 @@ name: upper-capture
 on:
   push:
     paths:
-      - ".github/workflows/upper-capture.yaml"
+      - ".github/workflows/upper-capture.yml"
       - "upper/**"
   workflow_dispatch: # optional manual trigger
 
