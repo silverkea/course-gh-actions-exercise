@@ -3,7 +3,7 @@ name: upper-xplat
 on:
   push:
     paths:
-      - ".github/workflows/upper-capture.yaml"
+      - ".github/workflows/upper-cross.yaml"
       - "upper/**"
   workflow_dispatch: # optional manual trigger
 
