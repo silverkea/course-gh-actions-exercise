@@ -1,0 +1,12 @@
+name: cd-on-deploy
+
+on:
+  deployment:
+
+jobs:
+  alerts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send deployment alert
+        run: echo "Deployment event received. You can integrate with alerting services here."
