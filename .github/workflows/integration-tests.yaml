@@ -8,12 +8,21 @@ on:
 jobs:
   generates:
     runs-on: ubuntu-latest
-
+    outputs:
+      RANDOM_PASSWORD: ${{ env.RANDOM_PASSWORD }}
     steps:
       - run: env | sort
       - run: echo "RANDOM_PASSWORD=$(LC_ALL=C tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 12)" >> $GITHUB_ENV
       - run: echo "Generated RANDOM_PASSWORD=${{ env.RANDOM_PASSWORD }}"
       - run: env | sort
+
+  testing:
+    needs: generates
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Using RANDOM_PASSWORD=${{ needs.generates.outputs.RANDOM_PASSWORD }} for testing"
+    
 
 
 
