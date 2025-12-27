@@ -20,7 +20,7 @@ jobs:
           go-version: '1.22'
           #go-version-file: ./upper/go.mod
           cache-dependency-path: ./upper/go.sum
-      - run: ./build.xplat.
+      - run: ./build.xplat.sh
       - uses: softprops/action-gh-release@v1
         with:
           files: ./upper/bin/upper*
