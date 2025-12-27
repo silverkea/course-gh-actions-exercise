@@ -48,10 +48,17 @@ jobs:
         run: terraform init
         working-directory: ./api/azure-app
 
+      # Validate Terraform configuration
+      - name: Terraform Validate
+        run: terraform validate
+        working-directory: ./api/azure-app
+
       # Plan Terraform changes
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan -input=false -out=tfplan
         working-directory: ./api/azure-app
+        env:
+          TF_LOG: INFO
 
       # Apply Terraform changes
       - name: Terraform Apply
