@@ -15,7 +15,7 @@ resource "azurerm_resource_group" "gh-actions" {
   # az group list --output table
   # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group
   name     = "gh-actions"
-  location = "westus2"  # Changed from eastus
+  location = "centralus"  # Different region for F1 quota availability
 }
 
 
@@ -28,7 +28,7 @@ resource "azurerm_service_plan" "web-api" {
 
   # legacy app_service docs say must set `reserved` to true (on the plan) if using linux_fx_version
   os_type  = "Linux"
-  sku_name = "B1" # B1 - Basic ($13/month), more quota available than F1
+  sku_name = "F1" # F1 - Free, B1 - Basic, P1 - Premium
 }
 
 resource "azurerm_linux_web_app" "web-api" {
@@ -42,7 +42,7 @@ resource "azurerm_linux_web_app" "web-api" {
 
   site_config {
     # site_config options: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app#always_on
-    always_on = true # can be true for B1 (basic tier)
+    always_on = false # must be false for F1 (free)
 
     # legacy app_service used linux_fx_version: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service#linux_fx_version
     #   i.e. linux_fx_version = "DOCKER|terryjmitchell/actions-web:latest"
