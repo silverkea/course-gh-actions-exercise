@@ -8,25 +8,25 @@ on:
   workflow_dispatch:
 
 jobs:
-  # build:
-  #   runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0 # all commits, so we can generate version off of tags/commits
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # all commits, so we can generate version off of tags/commits
       
-  #     - uses: docker/setup-buildx-action@v3
-  #     - run: docker buildx ls
-  #     - uses: docker/login-action@v3
-  #       with:
-  #         username: ${{ secrets.DOCKERHUB_USERNAME }}
-  #         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-  #     - run: ./build-push.sh
-  #       working-directory: ./api
+      - uses: docker/setup-buildx-action@v3
+      - run: docker buildx ls
+      - uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - run: ./build-push.sh
+        working-directory: ./api
 
   deploy:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: 'production'
