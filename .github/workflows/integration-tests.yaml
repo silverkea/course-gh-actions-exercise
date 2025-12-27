@@ -19,9 +19,13 @@ jobs:
   testing:
     needs: generates
     runs-on: ubuntu-latest
-
+    container:
+      image: mysql:8.4
     steps:
       - run: echo "Using RANDOM_PASSWORD=${{ needs.generates.outputs.RANDOM_PASSWORD }} for testing"
+      - run: mysql --version
+
+      
     
 
 
