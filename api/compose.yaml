@@ -1,6 +1,6 @@
 services:
   api:
-    image: weshigbee/actions-web:latest
+    image: silverkea/actions-web:latest
     build:
       context: .
       target: runner
