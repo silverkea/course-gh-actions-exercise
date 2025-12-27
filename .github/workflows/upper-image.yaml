@@ -21,3 +21,12 @@ jobs:
         working-directory: ./upper
       - name: test it
         run: docker container run upper hello terry
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - run: docker tag upper ghcr.io/${{ github.repository_owner }}/upper:latest
+      - run: docker tag upper ghtc.io/${{ github.repository_owner }}/upper:${{ github.ref_name}}
+      - run: docker push ghcr.io/${{ github.repository_owner }}/upper:latest
+      - run: docker push ghcr.io/${{ github.repository_owner }}/upper:${{ github.ref_name}}
