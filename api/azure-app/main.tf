@@ -15,7 +15,7 @@ resource "azurerm_resource_group" "gh-actions" {
   # az group list --output table
   # https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group
   name     = "gh-actions"
-  location = "eastus"
+  location = "westus2"  # Changed from eastus
 }
 
 
