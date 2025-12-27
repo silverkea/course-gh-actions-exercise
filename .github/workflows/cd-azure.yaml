@@ -30,6 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: 'production'
+      url: ${{ steps.deploy.outputs.webapp-url }}
     steps:
       # Login to Azure
       - uses: azure/login@v2
@@ -37,7 +38,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Deploy to Azure Web App
-      - uses: azure/webapps-deploy@v2
+      - uses: azure/webapps-deploy@v3
+        id: deploy        
         with:
           app-name: 'tjm-gh-actions-web-api'
           images: 'terryjmitchell/actions-web:latest'
