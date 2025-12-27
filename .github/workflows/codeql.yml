@@ -17,6 +17,7 @@ on:
       - '.github/workflows/codeql.yaml'
       - 'api/**'
   workflow_dispatch: #manual
+  
   # push:
   #   branches: [ "main" ]
   # pull_request:
