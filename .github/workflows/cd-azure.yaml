@@ -36,6 +36,6 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'gh-actions-web-api'
+          app-name: 'tjm-gh-actions-web-api'
           images: 'terryjmitchell/actions-web:latest'
           resource-group-name: gh-actions
