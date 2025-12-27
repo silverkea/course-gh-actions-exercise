@@ -1,4 +1,4 @@
-name: upper-capture
+name: upper-xplat
 
 on:
   push:
