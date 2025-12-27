@@ -8,5 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send deployment alert
-        run: echo "Deployment event received. You can integrate with alerting services here."
+      - name: Deployment Alert      
+        run: | 
+          echo "Deployment event received. You can integrate with alerting services here."
+          echo "${{ toJson(github.event) }}"
