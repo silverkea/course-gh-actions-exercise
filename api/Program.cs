@@ -25,6 +25,10 @@ var summaries = new[]
 
 app.MapGet("/sensitive", (string? password) =>
 {
+    if (password == "LetMeIn")
+    {
+        return "Sensitive data: 42 is the answer to life, the universe, and everything.";
+    }
     return "Access denied!";
 });
 
