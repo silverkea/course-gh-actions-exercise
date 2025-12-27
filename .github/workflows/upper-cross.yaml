@@ -7,8 +7,10 @@ on:
       - "upper/**"
   workflow_dispatch: # optional manual trigger
 
-jobs:
-  capture:
+jobs:  
+  cross:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     defaults:
       run:
