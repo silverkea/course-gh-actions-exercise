@@ -14,7 +14,7 @@ name: "CodeQL Advanced"
 on:
   push:
     paths:
-      - '.github/workflows/codeql.yaml'
+      - '.github/workflows/codeql.yml'
       - 'api/**'
   workflow_dispatch: #manual
   
